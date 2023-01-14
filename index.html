@@ -95,13 +95,17 @@
         class="z-[1000px] hidden lg:block fixed left-0 top-0 w-72 h-full text-white bg-[#1E2772] shadow-md z-10"
       >
         <div
-          class="flex text-white font-bold text-base uppercase justify-between text-center py-5"
+          class="flex text-white font-bold text-base uppercase justify-between text-center items-center p-5"
         >
-          <span> Enisha Ashrefa </span>
+
+        <div>
+            Enisha Ashrefa
+        </div>
+
 
           <a onclick="menuToggle()" class="sm:block md:hidden lg:hidden px-2">
             <iconify-icon
-              height="40"
+              height="20"
               inline
               class="text-gray-400"
               icon="gridicons:cross-circle"
@@ -193,9 +197,10 @@
           </li>
 
           <li>
-            <a class="flex items-center font-bold">
+            <a onclick="sidebarMenuToggle(1)" class="flex items-center font-bold cursor-pointer select-none">
               <button>
                 <iconify-icon
+                  id="sidebarmenuexpandicon_1"
                   width="30"
                   height="30"
                   class="mr-1 pt-2"
@@ -210,7 +215,7 @@
               ></iconify-icon>
               <span>Settings</span>
             </a>
-            <ul class="pl-10">
+            <ul id="sidebarmenu_1" data-open="true" class="pl-10 transition">
               <li>
                 <a class="flex items-center pl-[34px] text-xs font-light pt-5">
                   <iconify-icon
@@ -599,6 +604,26 @@
       }
     </script>
 
+
+
+<script>
+    function sidebarMenuToggle(id) {
+      var open = document.getElementById("sidebarmenu_"+id).dataset.open;
+      var sidebarsubmenu = document.getElementById("sidebarmenu_"+id);
+      var icon = document.getElementById("sidebarmenuexpandicon_"+id);
+
+      if (open === "true") {
+        document.getElementById("sidebarmenu_"+id).dataset.open = "false";
+        sidebarsubmenu.style.display = "none";
+        icon.icon = "material-symbols:keyboard-arrow-up-rounded";
+      } else {
+        document.getElementById("sidebarmenu_"+id).dataset.open = "true";
+        sidebarsubmenu.style.display = "block";
+        icon.icon = "material-symbols:keyboard-arrow-down-rounded";
+      }
+
+    }
+  </script>
 
 
     <script>        
