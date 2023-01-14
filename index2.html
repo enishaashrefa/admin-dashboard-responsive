@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+</head>
+
+<body>
+    <!-- navbar starts -->
+    <div class="min-h-screen bg-[#F4F4F4]">
+        <div class="h-16 bg-white shadow-sm sm:pl-0 sm:px-0 md:pl-80 md:px-8 lg:pl-80 lg:px-8 fixed w-full top-0 left-0 flex justify-between items-center">
+    
+            <div class="sm:block md:hidden lg:hidden px-2">
+                <iconify-icon height="40" inline class="text-gray-400"
+                    icon="material-symbols:menu-rounded"></iconify-icon>
+            </div>
+
+
+
+            <div class="relative ml-10 hidden lg:block">
+                <iconify-icon height="20" inline class="absolute left-2 top-[5px] w-6 text-gray-400"
+                    icon="bx:bx-search"></iconify-icon>
+                <input type="text" placeholder="SEARCH"
+                    class="placeholder:text-[10px] border border-gray-300 rounded-[5px] focus:outline-none pb-1 pl-12 w-[480px] text-base text-gray-600" />
+            </div>
+
+
+            <div class="ml-auto flex items-center justify-end">
+                <iconify-icon class="mr-4" icon="akar-icons:calendar" width="20" height="20"></iconify-icon>
+                <iconify-icon class="mr-4" icon="akar-icons:bell" width="20" height="20"></iconify-icon>
+
+                <div>
+                    <div onclick="functionClickDropdown()">
+                        <img id="dropdown" class="h-8 w-8 rounded-full object-cover cursor-pointer"
+                            src="./assets/images/Avatar.png" alt="" />
+                    </div>
+
+                    <div id="dropdown_content"
+                        class="hidden absolute z-50 mt-2 rounded-md shadow-lg w-48 right-0 py-1 bg-white">
+                        <div class="px-4 py-2 text-xs text-gray-400">Manage Account</div>
+                        <a href=""
+                            class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 transition">Profile</a>
+                        <div class="border-t border-gray-100"></div>
+                        <a href=""
+                            class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 transition">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- navbar ends -->
+
+        <!-- sidebar starts -->
+        <div class="hidden lg:block fixed left-0 top-0 w-72 h-full text-white bg-[#1E2772] shadow-md z-10">
+            <div class="text-white font-bold text-base uppercase text-center py-5">
+                Enisha Ashrefa
+            </div>
+
+            <ul class="flex flex-col gap-y-6 pt-20 pl-6">
+                <li>
+                    <a href="index.html" class="flex items-center font-bold pl-[34px]">
+                        <iconify-icon width="22" height="22" class="mr-3" icon="ph:layout-fill"></iconify-icon>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="attendance.html" class="flex items-center font-bold pl-[34px]">
+                        <iconify-icon width="22" height="22" class="mr-3" icon="ph:layout-fill"></iconify-icon>
+                        <span>Attendence</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="flex items-center font-bold pl-[34px]">
+                        <iconify-icon width="22" height="22" class="mr-3" icon="ph:layout-fill"></iconify-icon>
+                        <span>Employees</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="" class="flex items-center font-bold pl-[34px]">
+                        <iconify-icon width="22" height="22" class="mr-3" icon="ph:layout-fill"></iconify-icon>
+                        <span>Leaves</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="" class="flex items-center font-bold pl-[34px]">
+                        <iconify-icon width="22" height="22" class="mr-3" icon="ph:layout-fill"></iconify-icon>
+                        <span>Expense</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="" class="flex items-center font-bold pl-[34px]">
+                        <iconify-icon width="22" height="22" class="mr-3" icon="ph:layout-fill"></iconify-icon>
+                        <span>Notice</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="" class="flex items-center font-bold pl-[34px]">
+                        <iconify-icon width="22" height="22" class="mr-3" icon="ph:layout-fill"></iconify-icon>
+                        <span>Departments</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="flex items-center font-bold">
+                        <button>
+                            
+                            <iconify-icon width="30" height="30" class="mr-1 pt-2"
+                                icon="material-symbols:keyboard-arrow-down-rounded"></iconify-icon>
+                        </button>
+                        <iconify-icon width="22" height="22" class="mr-3"
+                            icon="material-symbols:settings-rounded"></iconify-icon>
+                        <span>Settings</span>
+                    </a>
+                    <ul class="pl-10">
+                        <li>
+                            <a class="flex items-center pl-[34px] text-xs font-light pt-5">
+                                <iconify-icon width="10" height="10" class="mr-3"
+                                    icon="ic:round-fiber-manual-record"></iconify-icon>
+                                <span>Approval</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="flex items-center pl-[34px] text-xs font-light pt-5">
+                                <iconify-icon width="10" height="10" class="mr-3"
+                                    icon="ic:round-fiber-manual-record"></iconify-icon>
+                                <span>Leave</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="flex items-center pl-[34px] text-xs font-light pt-5">
+                                <iconify-icon width="10" height="10" class="mr-3"
+                                    icon="ic:round-fiber-manual-record"></iconify-icon>
+                                <span>Office Setting</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="flex items-center pl-[34px] text-xs font-light pt-5">
+                                <iconify-icon width="10" height="10" class="mr-3"
+                                    icon="ic:round-fiber-manual-record"></iconify-icon>
+                                <span>My Subscriptions</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a class="flex items-center font-bold pl-[34px]">
+                        <iconify-icon width="22" height="22" class="mr-3"
+                            icon="material-symbols:logout-rounded"></iconify-icon>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- sidebar ends -->
+
+        <!-- main content starts -->
+        <div class="pl-4 pt-[100px] lg:pt-[150px] lg:pl-[350px] pr-5 pb-10">
+            <div class="flex justify-between flex-col lg:flex-row">
+                    <h1 class="text-3xl text-[#102048] font-bold">Attendence</h1>
+
+                <div class="flex items-center border-t-2 border-b-2 py-5 lg:py-0 mt-3 lg:mt-0 border-gray-300 lg:border-none">
+                    <button class="text-white mr-10 bg-[#1E2772] text-center font-bold py-3 px-4 rounded-md">Download Report</button>
+                    <iconify-icon class="text-[#1E2772]" width="35" height="35" icon="ph:gear-six-fill"></iconify-icon>
+                </div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row mt-5 space-x-0 space-y-5 lg:space-y-0  lg:space-x-4">
+                <div class="bg-white rounded-md shadow p-8 py-6 w-full lg:w-1/4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#000] text-lg">Jan 03, 2023</span>
+                        <iconify-icon height="20" icon="mdi:people-group"></iconify-icon>
+                    </div>
+                </div>
+                <div class="bg-white rounded-md shadow p-8 py-6 w-full lg:w-1/4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#000] text-lg">Jan 03, 2023</span>
+                        <iconify-icon height="20" icon="mdi:people-group"></iconify-icon>
+                    </div>
+                </div>
+                <div class="bg-white rounded-md shadow p-8 py-6 w-full lg:w-1/4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#000] text-lg">Jan 03, 2023</span>
+                        <iconify-icon height="20" icon="mdi:people-group"></iconify-icon>
+                    </div>
+                </div>
+                <div class="bg-white rounded-md shadow p-8 py-6 w-full lg:w-1/4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#000] text-lg">Jan 03, 2023</span>
+                        <iconify-icon height="20" icon="mdi:people-group"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row mt-5 space-x-0 space-y-5 lg:space-y-0  lg:space-x-4">
+                <div class="bg-white rounded-md shadow p-8 py-6 w-full lg:w-1/4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#000] text-lg">Jan 03, 2023</span>
+                        <iconify-icon height="20" icon="mdi:people-group"></iconify-icon>
+                    </div>
+                </div>
+                <div class="bg-white rounded-md shadow p-8 py-6 w-full lg:w-1/4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#000] text-lg">Jan 03, 2023</span>
+                        <iconify-icon height="20" icon="mdi:people-group"></iconify-icon>
+                    </div>
+                </div>
+                <div class="bg-white rounded-md shadow p-8 py-6 w-full lg:w-1/4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#000] text-lg">Jan 03, 2023</span>
+                        <iconify-icon height="20" icon="mdi:people-group"></iconify-icon>
+                    </div>
+                </div>
+                <div class="bg-white rounded-md shadow p-8 py-6 w-full lg:w-1/4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#000] text-lg">Jan 03, 2023</span>
+                        <iconify-icon height="20" icon="mdi:people-group"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white mt-10">
+                <div class="overflow-x-scroll">
+                                   <table class="w-full">
+                    <thead class="bg-white text-left">
+                        <tr>
+                            <th scope="col" class="p-4 w-[10px]">
+                                <div class="flex items-center">
+                                    <input id="checkbox-all" type="checkbox" />
+                                </div>
+                            </th>
+
+                            <th class="py-2 text-sm text-gray-400 font-light">
+                                Employee Name
+                            </th>
+                            <th class="py-2 text-sm text-gray-400 font-light">
+                                Department
+                            </th>
+                            <th class="py-2 text-sm text-gray-400 font-light">
+                                Check In
+                            </th>
+                            <th class="py-2 text-sm text-gray-400 font-light">
+                                Check Out
+                            </th>
+                            <th class="py-2 text-sm text-gray-400 font-light">
+                                Remark
+                            </th>
+
+                            <th class="py-2 text-sm text-gray-400 font-light">
+                                Hours
+                            </th>
+                            <th class="py-2 text-sm text-gray-400 font-light">
+                                Overtime
+                            </th>
+                            <th class="py-2 text-sm text-gray-400 font-light">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white text-left">
+                        <tr class="py-1 border">
+                            <td class="p-4 text-sm w-[10px] text-gray-500">
+                                <div class="flex items-center">
+                                    <input id="checkbox-all" type="checkbox" />
+                                </div>
+                            </td>
+                            <td class="py-2">
+                                <div class="text-sm text-black">Jahid Hasan</div>
+                            </td>
+                            <td class="py-2">
+                                <div class="text-sm text-black">Hr and Admin</div>
+                            </td>
+
+                            <td class="py-2">
+                                <a href="#" class="px-4 py-1 text-sm text-white bg-[#4AA785] rounded-full">09:45am</a>
+                            </td>
+                            <td class="py-4">
+                                <a href="#" class="px-4 py-1 text-sm text-white bg-[#4AA785] rounded-full">06:45pm</a>
+                            </td>
+
+                            <td class="py-2">
+                                <iconify-icon icon="ph:file-doc-fill" width="25" height="25"></iconify-icon>
+                            </td>
+
+                            <td class="py-2"></td>
+
+                            <td class="py-2"></td>
+
+                            <td class="py-2">
+                                <a href="">
+                                    <iconify-icon icon="ic:baseline-remove-red-eye" width="25"
+                                        height="25"></iconify-icon>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr class="py-1 border">
+                            <td class="p-4 text-sm w-[10px] text-gray-500">
+                                <div class="flex items-center">
+                                    <input id="checkbox-all" type="checkbox" />
+                                </div>
+                            </td>
+                            <td class="py-2">
+                                <div class="text-sm text-black">Jahid Hasan</div>
+                            </td>
+                            <td class="py-2">
+                                <div class="text-sm text-black">Hr and Admin</div>
+                            </td>
+
+                            <td class="py-2">
+                                <a href="#" class="px-4 py-1 text-sm text-white bg-[#4AA785] rounded-full">09:45am</a>
+                            </td>
+                            <td class="py-4">
+                                <a href="#" class="px-4 py-1 text-sm text-white bg-[#4AA785] rounded-full">06:45pm</a>
+                            </td>
+
+                            <td class="py-2">
+                                <iconify-icon icon="ph:file-doc-fill" width="25" height="25"></iconify-icon>
+                            </td>
+
+                            <td class="py-2"></td>
+
+                            <td class="py-2"></td>
+
+                            <td class="py-2">
+                                <a href="">
+                                    <iconify-icon icon="ic:baseline-remove-red-eye" width="25"
+                                        height="25"></iconify-icon>
+                                </a>
+                            </td>
+                        </tr>
+
+
+                        <tr class="py-1 border">
+                            <td class="p-4 text-sm w-[10px] text-gray-500">
+                                <div class="flex items-center">
+                                    <input id="checkbox-all" type="checkbox" />
+                                </div>
+                            </td>
+                            <td class="py-2">
+                                <div class="text-sm text-black">Jahid Hasan</div>
+                            </td>
+                            <td class="py-2">
+                                <div class="text-sm text-black">Hr and Admin</div>
+                            </td>
+
+                            <td class="py-2">
+                                <a href="#" class="px-4 py-1 text-sm text-white bg-[#4AA785] rounded-full">09:45am</a>
+                            </td>
+                            <td class="py-4">
+                                <a href="#" class="px-4 py-1 text-sm text-white bg-[#4AA785] rounded-full">06:45pm</a>
+                            </td>
+
+                            <td class="py-2">
+                                <iconify-icon icon="ph:file-doc-fill" width="25" height="25"></iconify-icon>
+                            </td>
+
+                            <td class="py-2"></td>
+
+                            <td class="py-2"></td>
+
+                            <td class="py-2">
+                                <a href="">
+                                    <iconify-icon icon="ic:baseline-remove-red-eye" width="25"
+                                        height="25"></iconify-icon>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr class="py-1 border">
+                            <td class="p-4 text-sm w-[10px] text-gray-500">
+                                <div class="flex items-center">
+                                    <input id="checkbox-all" type="checkbox" />
+                                </div>
+                            </td>
+                            <td class="py-2">
+                                <div class="text-sm text-black">Jahid Hasan</div>
+                            </td>
+                            <td class="py-2">
+                                <div class="text-sm text-black">Hr and Admin</div>
+                            </td>
+
+                            <td class="py-2">
+                                <a href="#" class="px-4 py-1 text-sm text-white bg-[#4AA785] rounded-full">09:45am</a>
+                            </td>
+                            <td class="py-4">
+                                <a href="#" class="px-4 py-1 text-sm text-white bg-[#4AA785] rounded-full">06:45pm</a>
+                            </td>
+
+                            <td class="py-2">
+                                <iconify-icon icon="ph:file-doc-fill" width="25" height="25"></iconify-icon>
+                            </td>
+
+                            <td class="py-2"></td>
+
+                            <td class="py-2"></td>
+
+                            <td class="py-2">
+                                <a href="">
+                                    <iconify-icon icon="ic:baseline-remove-red-eye" width="25"
+                                        height="25"></iconify-icon>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr class="py-1 border">
+                            <td class="p-4 text-sm w-[10px] text-gray-500">
+                                <div class="flex items-center">
+                                    <input id="checkbox-all" type="checkbox" />
+                                </div>
+                            </td>
+                            <td class="py-2">
+                                <div class="text-sm text-black">Jahid Hasan</div>
+                            </td>
+                            <td class="py-2">
+                                <div class="text-sm text-black">Hr and Admin</div>
+                            </td>
+
+                            <td class="py-2">
+                                <a href="#" class="px-4 py-1 text-sm text-white bg-[#4AA785] rounded-full">09:45am</a>
+                            </td>
+                            <td class="py-4">
+                                <a href="#" class="px-4 py-1 text-sm text-white bg-[#4AA785] rounded-full">06:45pm</a>
+                            </td>
+
+                            <td class="py-2">
+                                <iconify-icon icon="ph:file-doc-fill" width="25" height="25"></iconify-icon>
+                            </td>
+
+                            <td class="py-2"></td>
+
+                            <td class="py-2"></td>
+
+                            <td class="py-2">
+                                <a href="">
+                                    <iconify-icon icon="ic:baseline-remove-red-eye" width="25"
+                                        height="25"></iconify-icon>
+                                </a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table> 
+                </div>
+
+                <div class="p-10 flex justify-center lg:justify-end items-center flex-wrap">
+                    <span class="py-1 px-1 m-1 rounded-md text-black"><iconify-icon
+                            icon="material-symbols:arrow-back-ios" height="10"></iconify-icon></span>
+                    <span class="py-1 px-3 m-1 rounded-md text-black">1</span>
+                    <span class="py-1 px-3 m-1 bg-gray-100 rounded-md text-black">2</span>
+                    <span class="py-1 px-3 m-1 rounded-md text-black">3</span>
+                    <span class="py-1 px-3 m-1 rounded-md text-black">4</span>
+                    <span class="py-1 px-3 m-1 rounded-md text-black">5</span>
+                    <span class="py-1 px-1 m-1 rounded-md text-black"><iconify-icon
+                            icon="material-symbols:arrow-forward-ios" height="10"></iconify-icon></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- main content ends -->
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        var options = {
+            chart: {
+                height: 280,
+                type: "area",
+            },
+            dataLabels: {
+                enabled: false,
+                enabledOnSeries: false,
+            },
+            series: [
+                {
+                    name: "Series 1",
+                    data: [15, 20, 38, 25, 19, 23, 10],
+                },
+            ],
+            fill: {
+                type: "gradient",
+                gradient: {
+                    shadeIntensity: 1,
+                    gradientFromColors: ["#1E2772"],
+                    opacityFrom: 1,
+                    opacityTo: 0.3,
+                    stops: [0, 90, 100],
+                },
+            },
+            xaxis: {
+                categories: [
+                    "Nov 1",
+                    "Nov 4",
+                    "Nov 8",
+                    "Nov 12",
+                    "Nov 16",
+                    "Nov 24",
+                    "Nov 28",
+                    "Nov 30",
+                ],
+            },
+        };
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+        chart.render();
+    </script>
+</body>
+
+</html>
